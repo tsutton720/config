@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      server:
+        webmvc:
+          routes:
+            - id: service-1
+              uri: lb://service-1
+              predicates:
+                - Path=/service-1/**
+            - id: service-2
+              uri: lb://service-2
+              predicates:
+                - Path=/service-2/**
